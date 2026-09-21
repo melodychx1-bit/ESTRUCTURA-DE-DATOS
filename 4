@@ -1,0 +1,23 @@
+/*Ejercicio 4. Calcular el promedio
+Enunciado. Leer 6 números reales y calcular su promedio aritmético.*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    float numeros[6];
+    float suma = 0;
+    float promedio;
+
+    for (int i = 0; i < 6; i++) {
+        cin >> numeros[i];
+        suma = suma + numeros[i];
+    }
+
+    promedio = suma / 6;
+
+    cout << "Promedio = " << promedio;
+
+    return 0;
+}
+
