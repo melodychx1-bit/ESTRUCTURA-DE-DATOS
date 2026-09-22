@@ -1,0 +1,54 @@
+/*Ejercicio 63. Rotación in situ por reversas
+Enunciado. Rotar K posiciones a la derecha usando solamente intercambios/reversiones 
+y O(1) memoria
+auxiliar.*/
+
+#include <iostream>
+using namespace std;
+
+void invertir(int v[], int inicio, int fin) {
+    while (inicio < fin) {
+        int aux = v[inicio];
+        v[inicio] = v[fin];
+        v[fin] = aux;
+
+        inicio++;
+        fin--;
+    }
+}
+
+int main() {
+    int n, k;
+
+    cout << "Ingrese N: ";
+    cin >> n;
+
+    int v[100];
+
+    cout << "Ingrese los elementos: ";
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
+    }
+
+    cout << "Ingrese K: ";
+    cin >> k;
+
+    k = k % n;
+
+  
+    invertir(v, 0, n - 1);
+
+ 
+    invertir(v, 0, k - 1);
+
+    
+    invertir(v, k, n - 1);
+
+    cout << "Arreglo rotado: ";
+
+    for (int i = 0; i < n; i++) {
+        cout << v[i] << " ";
+    }
+
+    return 0;
+}
