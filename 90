@@ -1,0 +1,52 @@
+/*Ejercicio 90. Máxima área entre dos barras
+Enunciado. Dadas alturas, escoger dos posiciones que formen el contenedor de mayor área:
+min(altura[i],
+altura[j]) * (j-i).*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+    int A[100];
+
+    cout << "Ingrese N: ";
+    cin >> n;
+
+    cout << "Ingrese las alturas: ";
+    for (int i = 0; i < n; i++) {
+        cin >> A[i];
+    }
+
+    int mayorArea = 0;
+    int posicionIzquierda = 0;
+    int posicionDerecha = 0;
+
+    for (int i = 0; i < n; i++) {
+        for (int j = i + 1; j < n; j++) {
+
+            int altura;
+
+            if (A[i] < A[j]) {
+                altura = A[i];
+            } else {
+                altura = A[j];
+            }
+
+            int distancia = j - i;
+            int area = altura * distancia;
+
+            if (area > mayorArea) {
+                mayorArea = area;
+                posicionIzquierda = i;
+                posicionDerecha = j;
+            }
+        }
+    }
+
+    cout << "Area maxima = " << mayorArea << endl;
+    cout << "Posiciones: " << posicionIzquierda
+         << " y " << posicionDerecha << endl;
+
+    return 0;
+}
