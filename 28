@@ -1,0 +1,45 @@
+/*Ejercicio 28. Diferencia entre máximo y mínimo
+Enunciado. Leer N enteros y calcular máximo - mínimo.*/
+
+
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    int numeros[50];
+    int N;
+    int maximo;
+    int minimo;
+
+    cout<<"Ingrese un numero:";
+    cin >> N;
+
+    
+    for (int i = 0; i < N; i++) {
+        cin >> numeros[i];
+    }
+
+ 
+    maximo = numeros[0];
+    minimo = numeros[0];
+
+ 
+    for (int i = 1; i < N; i++) {
+
+        if (numeros[i] > maximo) {
+            maximo = numeros[i];
+        }
+
+        if (numeros[i] < minimo) {
+            minimo = numeros[i];
+        }
+    }
+
+    cout << "Diferencia = " << maximo - minimo;
+
+    return 0;
+}
+
