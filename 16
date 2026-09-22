@@ -1,0 +1,28 @@
+/*Ejercicio 16. Contar ceros
+Enunciado. Leer 10 enteros y contar cuántos elementos son exactamente cero.*/
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int A[10];
+    int contador = 0;
+
+    for(int i = 0; i < 10; i++)
+    {
+        cin >> A[i];
+    }
+
+    for(int i = 0; i < 10; i++)
+    {
+        if(A[i] == 0)
+        {
+            contador++;
+        }
+    }
+
+    cout << "Ceros = " << contador;
+
+    return 0;
+}
