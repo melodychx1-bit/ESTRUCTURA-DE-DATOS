@@ -1,0 +1,40 @@
+/*Ejercicio 58. Mayor diferencia absoluta consecutiva
+Enunciado. Encontrar dos elementos consecutivos con máxima diferencia absoluta*/
+
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+
+int main() {
+    int n;
+
+    cout << "Ingrese N: ";
+    cin >> n;
+
+    int v[100];
+
+    cout << "Ingrese los elementos: ";
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
+    }
+
+    int mayorDiferencia = abs(v[0] - v[1]);
+    int posicion = 0;
+
+    for (int i = 1; i < n - 1; i++) {
+
+        int diferencia = abs(v[i] - v[i + 1]);
+
+        if (diferencia > mayorDiferencia) {
+            mayorDiferencia = diferencia;
+            posicion = i;
+        }
+    }
+
+    cout << "Par: " << v[posicion]
+         << " " << v[posicion + 1] << endl;
+
+    cout << "Diferencia = " << mayorDiferencia << endl;
+
+    return 0;
+}
