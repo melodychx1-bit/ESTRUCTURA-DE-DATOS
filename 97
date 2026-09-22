@@ -1,0 +1,63 @@
+/*Ejercicio 97. Máxima longitud con igual cantidad de 0 y 1
+Enunciado. Dado un arreglo binario, encontrar la longitud del subarreglo contiguo más largo con igual número
+de ceros y unos. No usar mapas STL; diseñar un arreglo auxiliar indexado por suma desplazada.*/
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+    int A[100];
+
+    cout << "Ingrese N: ";
+    cin >> n;
+
+    cout << "Ingrese los elementos: ";
+    for (int i = 0; i < n; i++) {
+        cin >> A[i];
+    }
+
+    
+    int primera[201];
+
+    for (int i = 0; i <= 2 * n; i++) {
+        primera[i] = -2;
+    }
+
+    int desplazamiento = n;
+
+  
+    primera[desplazamiento] = -1;
+
+    int suma = 0;
+    int mayorLongitud = 0;
+
+    for (int i = 0; i < n; i++) {
+
+        if (A[i] == 0) {
+            suma = suma - 1;
+        } else {
+            suma = suma + 1;
+        }
+
+        int posicion = suma + desplazamiento;
+
+        if (primera[posicion] != -2) {
+
+            int longitud = i - primera[posicion];
+
+            if (longitud > mayorLongitud) {
+                mayorLongitud = longitud;
+            }
+
+        } else {
+            primera[posicion] = i;
+        }
+    }
+
+    cout << "Longitud maxima = "
+         << mayorLongitud << endl;
+
+    return 0;
+}
