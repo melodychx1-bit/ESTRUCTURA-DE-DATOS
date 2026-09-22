@@ -1,0 +1,47 @@
+/*Ejercicio 50. Elemento más cercano al promedio
+Enunciado. Calcular el promedio y hallar el elemento cuya distancia absoluta al promedio sea mínima. En
+empate, escoger el primero.*/
+
+
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main() {
+    int n;
+
+    cout << "Ingrese N: ";
+    cin >> n;
+
+    int v[100];
+
+    double suma = 0;
+
+    cout << "Ingrese los valores: ";
+
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
+        suma = suma + v[i];
+    }
+
+    double promedio = suma / n;
+
+    int masCercano = v[0];
+    double menorDistancia = fabs(v[0] - promedio);
+
+    for (int i = 1; i < n; i++) {
+
+        double distancia = fabs(v[i] - promedio);
+
+        if (distancia < menorDistancia) {
+            menorDistancia = distancia;
+            masCercano = v[i];
+        }
+    }
+
+    cout << "Promedio = " << promedio << endl;
+    cout << "Mas cercano = " << masCercano << endl;
+
+    return 0;
+}
