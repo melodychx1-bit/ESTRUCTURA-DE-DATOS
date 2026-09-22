@@ -1,0 +1,47 @@
+/*Ejercicio 65. K-ésimo menor sin std::sort
+Enunciado. Encontrar el K-ésimo menor elemento. Puede implementarse mediante 
+selección parcial o un
+algoritmo equivalente sobre arreglos.*/
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n, k;
+
+    cout << "Ingrese N: ";
+    cin >> n;
+
+    int v[100];
+
+    cout << "Ingrese los elementos: ";
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
+    }
+
+    cout << "Ingrese K: ";
+    cin >> k;
+
+   
+    for (int i = 0; i < k; i++) {
+
+        int posicionMenor = i;
+
+       
+        for (int j = i + 1; j < n; j++) {
+            if (v[j] < v[posicionMenor]) {
+                posicionMenor = j;
+            }
+        }
+
+     
+        int aux = v[i];
+        v[i] = v[posicionMenor];
+        v[posicionMenor] = aux;
+    }
+
+    cout << k << ".er menor = " << v[k - 1];
+
+    return 0;
+}
