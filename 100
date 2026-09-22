@@ -1,0 +1,71 @@
+/*Ejercicio 100. Mediana de dos arreglos ordenados
+Enunciado. Dados dos arreglos ordenados A y B, calcular la mediana conjunta sin construir necesariamente un
+tercer arreglo completo. Como reto, buscar O(log(min(N,M))).*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n, m;
+    int A[100];
+    int B[100];
+
+    cout << "Ingrese cantidad de elementos de A: ";
+    cin >> n;
+
+    cout << "Ingrese A ordenado: ";
+    for (int i = 0; i < n; i++) {
+        cin >> A[i];
+    }
+
+    cout << "Ingrese cantidad de elementos de B: ";
+    cin >> m;
+
+    cout << "Ingrese B ordenado: ";
+    for (int i = 0; i < m; i++) {
+        cin >> B[i];
+    }
+
+    int total = n + m;
+    int posicionMediana = total / 2;
+
+    int i = 0;
+    int j = 0;
+
+    int actual = 0;
+    int anterior = 0;
+
+    for (int posicion = 0; posicion <= posicionMediana; posicion++) {
+
+        anterior = actual;
+
+        if (i < n && j < m) {
+
+            if (A[i] <= B[j]) {
+                actual = A[i];
+                i++;
+            } else {
+                actual = B[j];
+                j++;
+            }
+
+        } else if (i < n) {
+            actual = A[i];
+            i++;
+
+        } else {
+            actual = B[j];
+            j++;
+        }
+    }
+
+    if (total % 2 == 1) {
+        cout << "Mediana = " << actual << endl;
+    } else {
+        cout << "Mediana = "
+             << (anterior + actual) / 2.0
+             << endl;
+    }
+
+    return 0;
+}
