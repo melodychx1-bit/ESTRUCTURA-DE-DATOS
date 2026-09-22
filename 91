@@ -1,0 +1,43 @@
+/*Ejercicio 91. Siguiente elemento mayor
+Enunciado. Para cada posición, encontrar el primer valor a su derecha que sea mayor. 
+Implementar una solución
+eficiente con un arreglo usado como pila manual.*/
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+    int A[100];
+    int R[100];
+    int pila[100];
+    int tope = -1;
+
+    cout << "Ingrese N: ";
+    cin >> n;
+
+    cout << "Ingrese los elementos: ";
+    for (int i = 0; i < n; i++) {
+        cin >> A[i];
+        R[i] = -1;
+    }
+
+    for (int i = 0; i < n; i++) {
+
+        while (tope >= 0 && A[i] > A[pila[tope]]) {
+            R[pila[tope]] = A[i];
+            tope--;
+        }
+
+        tope++;
+        pila[tope] = i;
+    }
+
+    cout << "Resultado: ";
+    for (int i = 0; i < n; i++) {
+        cout << R[i] << " ";
+    }
+
+    return 0;
+}
