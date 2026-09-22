@@ -1,0 +1,52 @@
+/*Ejercicio 67. Dos números cuya suma sea X
+Enunciado. Determinar si existen dos posiciones distintas cuyos valores sumen X
+. Mostrar un par de índices si
+existe.*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n, x;
+
+    cout << "Ingrese N: ";
+    cin >> n;
+
+    int v[100];
+
+    cout << "Ingrese los elementos: ";
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
+    }
+
+    cout << "Ingrese X: ";
+    cin >> x;
+
+    bool encontrado = false;
+
+    for (int i = 0; i < n - 1; i++) {
+
+        for (int j = i + 1; j < n; j++) {
+
+            if (v[i] + v[j] == x) {
+
+                cout << "Indices: " << i << " y " << j << endl;
+                cout << "Valores: " << v[i] << " + "
+                     << v[j] << " = " << x;
+
+                encontrado = true;
+                break;
+            }
+        }
+
+        if (encontrado) {
+            break;
+        }
+    }
+
+    if (!encontrado) {
+        cout << "No existe un par.";
+    }
+
+    return 0;
+}
