@@ -1,0 +1,34 @@
+
+/*Ejercicio 98. Número faltante en 0..N
+Enunciado. Se reciben N valores distintos del rango 0..N; falta exactamente uno. Encontrarlo sin ordenar, usando
+suma o XOR.*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+    int A[100];
+
+    cout << "Ingrese N: ";
+    cin >> n;
+
+    cout << "Ingrese los valores: ";
+    for (int i = 0; i < n; i++) {
+        cin >> A[i];
+    }
+
+    int sumaEsperada = n * (n + 1) / 2;
+
+    int sumaReal = 0;
+
+    for (int i = 0; i < n; i++) {
+        sumaReal = sumaReal + A[i];
+    }
+
+    int faltante = sumaEsperada - sumaReal;
+
+    cout << "Faltante = " << faltante << endl;
+
+    return 0;
+}
