@@ -1,0 +1,58 @@
+/*Ejercicio 85. Búsqueda binaria: última aparición
+Enunciado. En un arreglo ordenado con duplicados, encontrar el último índice de X en O(log N).*/
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    int n, x;
+
+    cout << "Ingrese N: ";
+    cin >> n;
+
+    int v[100];
+
+    cout << "Ingrese los elementos ordenados: ";
+
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
+    }
+
+    cout << "Ingrese X: ";
+    cin >> x;
+
+    int izquierda = 0;
+    int derecha = n - 1;
+    int respuesta = -1;
+
+    while (izquierda <= derecha) {
+
+        int medio = (izquierda + derecha) / 2;
+
+        if (v[medio] == x) {
+
+            respuesta = medio;
+
+          
+            izquierda = medio + 1;
+
+        } else if (v[medio] < x) {
+
+            izquierda = medio + 1;
+
+        } else {
+
+            derecha = medio - 1;
+        }
+    }
+
+    if (respuesta != -1) {
+        cout << "Ultima posicion = " << respuesta;
+    } else {
+        cout << "No encontrado.";
+    }
+
+    return 0;
+}
