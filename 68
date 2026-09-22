@@ -1,0 +1,63 @@
+/*Ejercicio 68. Tres números cuya suma sea X
+Enunciado. Encontrar tres posiciones distintas cuyos valores sumen X.
+Basta reportar una terna válida*/
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n, x;
+
+    cout << "Ingrese N: ";
+    cin >> n;
+
+    int v[100];
+
+    cout << "Ingrese los elementos: ";
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
+    }
+
+    cout << "Ingrese X: ";
+    cin >> x;
+
+    bool encontrado = false;
+
+    for (int i = 0; i < n - 2; i++) {
+
+        for (int j = i + 1; j < n - 1; j++) {
+
+            for (int k = j + 1; k < n; k++) {
+
+                if (v[i] + v[j] + v[k] == x) {
+
+                    cout << "Indices: "
+                         << i << ", " << j << ", " << k << endl;
+
+                    cout << "Valores: "
+                         << v[i] << " "
+                         << v[j] << " "
+                         << v[k];
+
+                    encontrado = true;
+                    break;
+                }
+            }
+
+            if (encontrado) {
+                break;
+            }
+        }
+
+        if (encontrado) {
+            break;
+        }
+    }
+
+    if (!encontrado) {
+        cout << "No existe una terna.";
+    }
+
+    return 0;
+}
