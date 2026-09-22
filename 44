@@ -1,0 +1,41 @@
+
+/*Ejercicio 44. Ordenamiento por inserción
+Enunciado. Ordenar N enteros ascendentemente con Insertion Sort.*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int numeros[50];
+    int N;
+    int clave;
+    int j;
+
+    cout << "Ingrese la cantidad de numeros: ";
+    cin >> N;
+
+    cout << "Ingrese los " << N << " numeros: ";
+    for (int i = 0; i < N; i++) {
+        cin >> numeros[i];
+    }
+
+    for (int i = 1; i < N; i++) {
+        clave = numeros[i];
+        j = i - 1;
+
+        while (j >= 0 && numeros[j] > clave) {
+            numeros[j + 1] = numeros[j];
+            j--;
+        }
+
+        numeros[j + 1] = clave;
+    }
+
+    cout << "Arreglo ordenado de menor a mayor: ";
+
+    for (int i = 0; i < N; i++) {
+        cout << numeros[i] << " ";
+    }
+
+    return 0;
+}
