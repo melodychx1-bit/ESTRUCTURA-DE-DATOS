@@ -1,0 +1,82 @@
+/*Ejercicio 71. Máxima suma circular
+Enunciado. Calcular la suma máxima de un subarreglo contiguo considerando que 
+el arreglo es circular*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+
+    cout << "Ingrese N: ";
+    cin >> n;
+
+    int v[100];
+
+    cout << "Ingrese los elementos: ";
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
+    }
+
+ 
+
+    int sumaActual = v[0];
+    int sumaMaxima = v[0];
+
+    for (int i = 1; i < n; i++) {
+
+        if (sumaActual + v[i] < v[i]) {
+            sumaActual = v[i];
+        } else {
+            sumaActual += v[i];
+        }
+
+        if (sumaActual > sumaMaxima) {
+            sumaMaxima = sumaActual;
+        }
+    }
+
+   
+
+    int sumaMinActual = v[0];
+    int sumaMinima = v[0];
+
+    for (int i = 1; i < n; i++) {
+
+        if (sumaMinActual + v[i] > v[i]) {
+            sumaMinActual = v[i];
+        } else {
+            sumaMinActual += v[i];
+        }
+
+        if (sumaMinActual < sumaMinima) {
+            sumaMinima = sumaMinActual;
+        }
+    }
+
+   
+    int sumaTotal = 0;
+
+    for (int i = 0; i < n; i++) {
+        sumaTotal += v[i];
+    }
+
+    int sumaCircular = sumaTotal - sumaMinima;
+
+   
+    if (sumaCircular == 0) {
+        sumaCircular = sumaMaxima;
+    }
+
+    int respuesta;
+
+    if (sumaMaxima > sumaCircular) {
+        respuesta = sumaMaxima;
+    } else {
+        respuesta = sumaCircular;
+    }
+
+    cout << "Suma maxima circular = " << respuesta;
+
+    return 0;
+}
