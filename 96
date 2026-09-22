@@ -1,0 +1,52 @@
+/*Ejercicio 96. Longitud mínima con suma al menos S
+Enunciado. Con valores positivos, hallar la longitud mínima de un subarreglo 
+contiguo cuya suma sea ≥ S.*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n, S;
+    int A[100];
+
+    cout << "Ingrese N: ";
+    cin >> n;
+
+    cout << "Ingrese S: ";
+    cin >> S;
+
+    cout << "Ingrese los elementos: ";
+    for (int i = 0; i < n; i++) {
+        cin >> A[i];
+    }
+
+    int izquierda = 0;
+    int suma = 0;
+    int longitudMinima = n + 1;
+
+    for (int derecha = 0; derecha < n; derecha++) {
+
+        suma = suma + A[derecha];
+
+        while (suma >= S) {
+
+            int longitud = derecha - izquierda + 1;
+
+            if (longitud < longitudMinima) {
+                longitudMinima = longitud;
+            }
+
+            suma = suma - A[izquierda];
+            izquierda++;
+        }
+    }
+
+    if (longitudMinima == n + 1) {
+        cout << "No existe un subarreglo" << endl;
+    } else {
+        cout << "Longitud minima = "
+             << longitudMinima << endl;
+    }
+
+    return 0;
+}
