@@ -1,0 +1,68 @@
+/*Ejercicio 66. K-ésimo mayor distinto
+Enunciado. Encontrar el K-ésimo mayor valor distinto del arreglo.*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n, k;
+
+    cout << "Ingrese N: ";
+    cin >> n;
+
+    int v[100];
+
+    cout << "Ingrese los elementos: ";
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
+    }
+
+    cout << "Ingrese K: ";
+    cin >> k;
+
+    int distintos[100];
+    int cantidad = 0;
+
+
+    for (int i = 0; i < n; i++) {
+
+        bool existe = false;
+
+        for (int j = 0; j < cantidad; j++) {
+            if (distintos[j] == v[i]) {
+                existe = true;
+                break;
+            }
+        }
+
+        if (!existe) {
+            distintos[cantidad] = v[i];
+            cantidad++;
+        }
+    }
+
+  
+    for (int i = 0; i < cantidad - 1; i++) {
+
+        int posicionMayor = i;
+
+        for (int j = i + 1; j < cantidad; j++) {
+            if (distintos[j] > distintos[posicionMayor]) {
+                posicionMayor = j;
+            }
+        }
+
+        int aux = distintos[i];
+        distintos[i] = distintos[posicionMayor];
+        distintos[posicionMayor] = aux;
+    }
+
+    if (k <= cantidad) {
+        cout << k << ".er mayor distinto = "
+             << distintos[k - 1];
+    } else {
+        cout << "No existe el K-esimo mayor distinto.";
+    }
+
+    return 0;
+}
