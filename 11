@@ -1,0 +1,18 @@
+/*Ejercicio 11. Duplicar cada elemento
+Enunciado. Leer 5 enteros, multiplicar cada elemento por 2 y mostrar el arreglo resultante*/
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int numeros[5];
+
+    for (int i = 0; i < 5; i++) {
+        cin >> numeros[i];
+        numeros[i] = numeros[i] * 2;
+        cout << numeros[i] << " ";
+    }
+
+    return 0;
+}
