@@ -1,0 +1,48 @@
+/*Ejercicio 31. Frecuencia de cada elemento
+Enunciado. Para cada valor distinto, mostrar cuántas veces aparece. No usar estructuras de
+datos de la STL.*/
+
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    int numeros[50];
+    int visitado[50];
+    int N;
+    int contador;
+
+    cout<<"Ingresar un numero:";
+    cin >> N;
+
+   
+    for (int i = 0; i < N; i++) {
+        cin >> numeros[i];
+        visitado[i] = 0;
+    }
+
+   
+    for (int i = 0; i < N; i++) {
+
+        if (visitado[i] == 1) {
+            continue;
+        }
+
+        contador = 1;
+
+        for (int j = i + 1; j < N; j++) {
+
+            if (numeros[i] == numeros[j]) {
+                contador++;
+                visitado[j] = 1;
+            }
+        }
+
+        cout << numeros[i] << " -> " << contador << endl;
+    }
+
+    return 0;
+}
+
