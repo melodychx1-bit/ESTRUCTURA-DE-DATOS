@@ -1,0 +1,41 @@
+/*Ejercicio 32. Eliminar lógicamente un elemento por posición
+Enunciado. Leer N, el arreglo y una posición P válida. Desplazar a la izquierda desde 
+P y reducir el tamaño lógico
+en uno*/
+
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    int numeros[50];
+    int N;
+    int P;
+    
+    cout<<"Ingrese un numero:";
+    cin >> N;
+
+
+    for (int i = 0; i < N; i++) {
+        cin >> numeros[i];
+    }
+    
+    cout<<"Ingrese un valor para P:";
+    cin >> P;
+
+  
+    for (int i = P; i < N - 1; i++) {
+        numeros[i] = numeros[i + 1];
+    }
+
+    N--;
+
+    for (int i = 0; i < N; i++) {
+        cout << numeros[i] << " ";
+    }
+
+    return 0;
+}
+
