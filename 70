@@ -1,0 +1,56 @@
+
+/*Ejercicio 70. Subarreglo con suma mínima
+Enunciado. Encontrar la suma mínima de un segmento contiguo y reportar sus índices.*/
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+
+    cout << "Ingrese N: ";
+    cin >> n;
+
+    int v[100];
+
+    cout << "Ingrese los elementos: ";
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
+    }
+
+    int sumaActual = v[0];
+    int sumaMinima = v[0];
+
+    int inicioActual = 0;
+    int mejorInicio = 0;
+    int mejorFin = 0;
+
+    for (int i = 1; i < n; i++) {
+
+        if (sumaActual + v[i] > v[i]) {
+            sumaActual = v[i];
+            inicioActual = i;
+        } else {
+            sumaActual = sumaActual + v[i];
+        }
+
+        if (sumaActual < sumaMinima) {
+            sumaMinima = sumaActual;
+            mejorInicio = inicioActual;
+            mejorFin = i;
+        }
+    }
+
+    cout << "Suma minima = " << sumaMinima << endl;
+    cout << "Indices = " << mejorInicio
+         << ".." << mejorFin << endl;
+
+    cout << "Segmento: ";
+
+    for (int i = mejorInicio; i <= mejorFin; i++) {
+        cout << v[i] << " ";
+    }
+
+    return 0;
+}
