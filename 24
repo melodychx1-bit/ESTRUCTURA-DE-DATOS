@@ -1,0 +1,59 @@
+/*Ejercicio 24. Separar pares e impares
+Enunciado. Leer N enteros y construir dos arreglos: uno con los pares y otro con 
+los impares, preservando el
+orden original*/
+
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int A[50];
+    int pares[50];
+    int impares[50];
+
+    int N;
+    int cp = 0;
+    int ci = 0;
+
+    cout<<"Ingrese un numero:";
+    cin >> N;
+
+    for(int i = 0; i < N; i++)
+    {
+        cin >> A[i];
+    }
+
+    for(int i = 0; i < N; i++)
+    {
+        if(A[i] % 2 == 0)
+        {
+            pares[cp] = A[i];
+            cp = cp + 1;
+        }
+        else
+        {
+            impares[ci] = A[i];
+            ci = ci + 1;
+        }
+    }
+
+    cout << "Pares: ";
+
+    for(int i = 0; i < cp; i++)
+    {
+        cout << pares[i] << " ";
+    }
+
+    cout << endl;
+
+    cout << "Impares: ";
+
+    for(int i = 0; i < ci; i++)
+    {
+        cout << impares[i] << " ";
+    }
+
+    return 0;
+}
