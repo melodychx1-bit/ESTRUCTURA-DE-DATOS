@@ -1,0 +1,41 @@
+/*Ejercicio 49. Valores mayores que el promedio
+Enunciado. Calcular el promedio y mostrar todos los elementos estrictamente mayores al promedio.*/
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+
+    cout << "Ingrese N: ";
+    cin >> n;
+
+    int v[100];
+
+    double suma = 0;
+
+    cout << "Ingrese los valores: ";
+
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
+        suma = suma + v[i];
+    }
+
+    double promedio = suma / n;
+
+    cout << "Promedio = " << promedio << endl;
+
+    cout << "Mayores: ";
+
+    for (int i = 0; i < n; i++) {
+
+        if (v[i] > promedio) {
+            cout << v[i] << " ";
+        }
+    }
+
+    cout << endl;
+
+    return 0;
+}
