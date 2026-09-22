@@ -1,0 +1,65 @@
+/*Ejercicio 53. Diferencia A - B
+Enunciado. Construir un arreglo con valores distintos de A que no estén presentes en B*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int nA, nB;
+
+    cout << "Ingrese el tamaño de A: ";
+    cin >> nA;
+
+    int A[100];
+
+    cout << "Ingrese los elementos de A: ";
+    for (int i = 0; i < nA; i++) {
+        cin >> A[i];
+    }
+
+    cout << "Ingrese el tamaño de B: ";
+    cin >> nB;
+
+    int B[100];
+
+    cout << "Ingrese los elementos de B: ";
+    for (int i = 0; i < nB; i++) {
+        cin >> B[i];
+    }
+
+    int C[100];
+    int nC = 0;
+
+    for (int i = 0; i < nA; i++) {
+
+        bool estaEnB = false;
+
+        for (int j = 0; j < nB; j++) {
+            if (A[i] == B[j]) {
+                estaEnB = true;
+            }
+        }
+
+        bool yaEsta = false;
+
+        for (int j = 0; j < nC; j++) {
+            if (C[j] == A[i]) {
+                yaEsta = true;
+            }
+        }
+
+        if (!estaEnB && !yaEsta) {
+            C[nC] = A[i];
+            nC++;
+        }
+    }
+
+    cout << "Diferencia A - B: ";
+
+    for (int i = 0; i < nC; i++) {
+        cout << C[i] << " ";
+    }
+
+
+    return 0;
+}
