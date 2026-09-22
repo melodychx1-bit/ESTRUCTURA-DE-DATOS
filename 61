@@ -1,0 +1,55 @@
+
+/*Ejercicio 61. Rotación K posiciones a la derecha
+Enunciado. Rotar un arreglo N posiciones K hacia la derecha. Resolver correctamente
+cuando K > N usando K %
+N.*/
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n, k;
+
+    cout << "Ingrese N: ";
+    cin >> n;
+
+    int v[100];
+
+    cout << "Ingrese los elementos: ";
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
+    }
+
+    cout << "Ingrese K: ";
+    cin >> k;
+
+ 
+    k = k % n;
+
+ 
+    int aux[100];
+
+   
+    for (int i = 0; i < k; i++) {
+        aux[i] = v[n - k + i];
+    }
+
+
+    for (int i = k; i < n; i++) {
+        aux[i] = v[i - k];
+    }
+
+
+    for (int i = 0; i < n; i++) {
+        v[i] = aux[i];
+    }
+
+    cout << "Arreglo rotado: ";
+
+    for (int i = 0; i < n; i++) {
+        cout << v[i] << " ";
+    }
+
+    return 0;
+}
