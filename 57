@@ -1,0 +1,39 @@
+/*Ejercicio 57. Mayor suma de dos consecutivos
+Enunciado. Encontrar el par de elementos adyacentes cuya suma sea máxima*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+
+    cout << "Ingrese N: ";
+    cin >> n;
+
+    int v[100];
+
+    cout << "Ingrese los elementos: ";
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
+    }
+
+    int mayorSuma = v[0] + v[1];
+    int posicion = 0;
+
+    for (int i = 1; i < n - 1; i++) {
+
+        int suma = v[i] + v[i + 1];
+
+        if (suma > mayorSuma) {
+            mayorSuma = suma;
+            posicion = i;
+        }
+    }
+
+    cout << "Par: " << v[posicion]
+         << " " << v[posicion + 1] << endl;
+
+    cout << "Suma = " << mayorSuma << endl;
+
+    return 0;
+}
