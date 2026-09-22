@@ -1,0 +1,49 @@
+
+/*Ejercicio 92. Temperaturas: días hasta una mayor
+Enunciado. Para cada temperatura, calcular cuántas posiciones hay que avanzar
+hasta encontrar una
+temperatura mayor; si no existe, 0. Usar pila manual con arreglos.*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+    int temperatura[100];
+    int respuesta[100];
+    int pila[100];
+    int tope = -1;
+
+    cout << "Ingrese N: ";
+    cin >> n;
+
+    cout << "Ingrese las temperaturas: ";
+    for (int i = 0; i < n; i++) {
+        cin >> temperatura[i];
+        respuesta[i] = 0;
+    }
+
+    for (int i = 0; i < n; i++) {
+
+        while (tope >= 0 &&
+               temperatura[i] > temperatura[pila[tope]]) {
+
+            int posicion = pila[tope];
+
+            respuesta[posicion] = i - posicion;
+
+            tope--;
+        }
+
+        tope++;
+        pila[tope] = i;
+    }
+
+    cout << "Dias hasta una temperatura mayor: ";
+
+    for (int i = 0; i < n; i++) {
+        cout << respuesta[i] << " ";
+    }
+
+    return 0;
+}
