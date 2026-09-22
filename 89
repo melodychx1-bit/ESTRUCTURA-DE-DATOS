@@ -1,0 +1,55 @@
+/*Ejercicio 89. Agua atrapada entre barras
+Enunciado. Cada elemento representa una altura. Calcular cuánta agua queda atrapada 
+después de llover.*/
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+    int A[100];
+
+    cout << "Ingrese N: ";
+    cin >> n;
+
+    cout << "Ingrese las alturas: ";
+    for (int i = 0; i < n; i++) {
+        cin >> A[i];
+    }
+
+    int aguaTotal = 0;
+
+    for (int i = 0; i < n; i++) {
+
+        int maxIzquierda = A[i];
+
+        for (int j = 0; j < i; j++) {
+            if (A[j] > maxIzquierda) {
+                maxIzquierda = A[j];
+            }
+        }
+
+        int maxDerecha = A[i];
+
+        for (int j = i + 1; j < n; j++) {
+            if (A[j] > maxDerecha) {
+                maxDerecha = A[j];
+            }
+        }
+
+        int nivelAgua;
+
+        if (maxIzquierda < maxDerecha) {
+            nivelAgua = maxIzquierda;
+        } else {
+            nivelAgua = maxDerecha;
+        }
+
+        aguaTotal = aguaTotal + (nivelAgua - A[i]);
+    }
+
+    cout << "Agua atrapada = " << aguaTotal << endl;
+
+    return 0;
+}
