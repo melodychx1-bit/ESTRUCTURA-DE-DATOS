@@ -1,0 +1,23 @@
+/*Ejercicio 10. Contar impares
+Enunciado. Leer 10 enteros y contar cuántos son impares.*/
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int numeros[10];
+    int impares = 0;
+
+    for (int i = 0; i < 10; i++) {
+        cin >> numeros[i];
+
+        if (numeros[i] % 2 != 0) {
+            impares = impares + 1;
+        }
+    }
+
+    cout << "Impares = " << impares;
+
+    return 0;
+}
