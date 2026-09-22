@@ -1,0 +1,42 @@
+
+/*Ejercicio 80. Reordenar según una permutación
+Enunciado. Dados valores A y un arreglo P de índices, construir B tal que B[i] = A[P[i]].*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+
+    cout << "Ingrese N: ";
+    cin >> n;
+
+    int A[100];
+    int P[100];
+    int B[100];
+
+    cout << "Ingrese A: ";
+
+    for (int i = 0; i < n; i++) {
+        cin >> A[i];
+    }
+
+    cout << "Ingrese P: ";
+
+    for (int i = 0; i < n; i++) {
+        cin >> P[i];
+    }
+
+   
+    for (int i = 0; i < n; i++) {
+        B[i] = A[P[i]];
+    }
+
+    cout << "B: ";
+
+    for (int i = 0; i < n; i++) {
+        cout << B[i] << " ";
+    }
+
+    return 0;
+}
