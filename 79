@@ -1,0 +1,48 @@
+/*Ejercicio 79. Comprobar permutación de 1..N
+Enunciado. Determinar si el arreglo contiene exactamente una vez cada entero desde 1 hasta N.*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+
+    cout << "Ingrese N: ";
+    cin >> n;
+
+    int v[100];
+    bool usado[101] = {false};
+
+    cout << "Ingrese los elementos: ";
+
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
+    }
+
+    bool esPermutacion = true;
+
+    for (int i = 0; i < n; i++) {
+
+      
+        if (v[i] < 1 || v[i] > n) {
+            esPermutacion = false;
+            break;
+        }
+
+      
+        if (usado[v[i]]) {
+            esPermutacion = false;
+            break;
+        }
+
+        usado[v[i]] = true;
+    }
+
+    if (esPermutacion) {
+        cout << "Es permutacion: SI";
+    } else {
+        cout << "Es permutacion: NO";
+    }
+
+    return 0;
+}
