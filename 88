@@ -1,0 +1,40 @@
+/*Ejercicio 88. Producto excepto en la posición
+Enunciado. Construir R donde R[i] sea el producto de todos los elementos excepto A[i]. 
+No usar división.*/
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+    int A[100];
+    int R[100];
+
+    cout << "Ingrese N: ";
+    cin >> n;
+
+    cout << "Ingrese los elementos: ";
+    for (int i = 0; i < n; i++) {
+        cin >> A[i];
+    }
+
+    for (int i = 0; i < n; i++) {
+        int producto = 1;
+
+        for (int j = 0; j < n; j++) {
+            if (i != j) {
+                producto = producto * A[j];
+            }
+        }
+
+        R[i] = producto;
+    }
+
+    cout << "Resultado: ";
+    for (int i = 0; i < n; i++) {
+        cout << R[i] << " ";
+    }
+
+    return 0;
+}
