@@ -1,0 +1,50 @@
+/*Ejercicio 95. Máximo de cada ventana de tamaño K
+Enunciado. Para cada ventana consecutiva de K elementos, mostrar el máximo usando una cola doble manual
+basada en arreglo de índices*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n, k;
+    int A[100];
+    int deque[100];
+
+    cout << "Ingrese N: ";
+    cin >> n;
+
+    cout << "Ingrese K: ";
+    cin >> k;
+
+    cout << "Ingrese los elementos: ";
+    for (int i = 0; i < n; i++) {
+        cin >> A[i];
+    }
+
+    int frente = 0;
+    int final = -1;
+
+    for (int i = 0; i < n; i++) {
+
+        
+        while (frente <= final && deque[frente] <= i - k) {
+            frente++;
+        }
+
+        
+        while (frente <= final &&
+               A[deque[final]] <= A[i]) {
+            final--;
+        }
+
+        final++;
+        deque[final] = i;
+
+       
+        if (i >= k - 1) {
+            cout << A[deque[frente]] << " ";
+        }
+    }
+
+    return 0;
+}
