@@ -1,0 +1,63 @@
+/*Ejercicio 54. Mezclar dos vectores intercalando
+Enunciado. Intercalar A y B: A[0], B[0], A[1], B[1]... Si tienen distinto tamaño, 
+anexar los sobrantes.*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int nA, nB;
+
+    cout << "Ingrese el tamaño de A: ";
+    cin >> nA;
+
+    int A[100];
+
+    cout << "Ingrese los elementos de A: ";
+    for (int i = 0; i < nA; i++) {
+        cin >> A[i];
+    }
+
+    cout << "Ingrese el tamaño de B: ";
+    cin >> nB;
+
+    int B[100];
+
+    cout << "Ingrese los elementos de B: ";
+    for (int i = 0; i < nB; i++) {
+        cin >> B[i];
+    }
+
+    int C[200];
+    int nC = 0;
+
+    int mayor;
+
+    if (nA > nB) {
+        mayor = nA;
+    }
+    else {
+        mayor = nB;
+    }
+
+    for (int i = 0; i < mayor; i++) {
+
+        if (i < nA) {
+            C[nC] = A[i];
+            nC++;
+        }
+
+        if (i < nB) {
+            C[nC] = B[i];
+            nC++;
+        }
+    }
+
+    cout << "Resultado: ";
+
+    for (int i = 0; i < nC; i++) {
+        cout << C[i] << " ";
+    }
+
+    return 0;
+}
