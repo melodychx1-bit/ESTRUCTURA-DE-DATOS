@@ -1,0 +1,38 @@
+/*Ejercicio 37. Comprobar si está ordenado ascendentemente
+Enunciado. Determinar si cada elemento es menor o igual que el siguiente.*/
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    int numeros[50];
+    int N;
+    bool ordenado = true;
+
+    cout << "Ingrese la cantidad de numeros: ";
+    cin >> N;
+
+    cout << "Ingrese los " << N << " numeros: ";
+    for (int i = 0; i < N; i++) {
+        cin >> numeros[i];
+    }
+
+   
+    for (int i = 0; i < N - 1; i++) {
+
+        if (numeros[i] > numeros[i + 1]) {
+            ordenado = false;
+        }
+    }
+
+    if (ordenado) {
+        cout << "Ordenado ascendentemente: SI";
+    } else {
+        cout << "Ordenado ascendentemente: NO";
+    }
+
+    return 0;
+}
+
