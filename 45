@@ -1,0 +1,52 @@
+/*Ejercicio 45. Búsqueda binaria
+Enunciado. Dado un arreglo ya ordenado ascendentemente y un valor X, encontrar su índice mediante búsqueda
+binaria.*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+    
+    cout << "Ingrese N: ";
+    cin >> n;
+
+    int v[100];
+
+    cout << "Ingrese los elementos ordenados: ";
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
+    }
+
+    int x;
+    cout << "Ingrese el valor a buscar: ";
+    cin >> x;
+
+    int izquierda = 0;
+    int derecha = n - 1;
+    int posicion = -1;
+
+    while (izquierda <= derecha) {
+        int medio = (izquierda + derecha) / 2;
+
+        if (v[medio] == x) {
+            posicion = medio;
+            break;
+        }
+        else if (x < v[medio]) {
+            derecha = medio - 1;
+        }
+        else {
+            izquierda = medio + 1;
+        }
+    }
+
+    if (posicion != -1) {
+        cout << "Posicion = " << posicion << endl;
+    }
+    else {
+        cout << "El elemento no se encuentra" << endl;
+    }
+
+    return 0;
+}
