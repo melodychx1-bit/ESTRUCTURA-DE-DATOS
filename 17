@@ -1,0 +1,39 @@
+/*Ejercicio 17. Buscar un valor
+Enunciado. Leer 8 enteros y luego un número X. Indicar si X aparece en el arreglo.*/
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int A[8];
+    int X;
+    int encontrado = 0;
+
+    for(int i = 0; i < 8; i++)
+    {
+        cin >> A[i];
+    }
+
+    cout<<"Ingrese un numero:";
+    cin >> X;
+
+    for(int i = 0; i < 8; i++)
+    {
+        if(A[i] == X)
+        {
+            encontrado = 1;
+        }
+    }
+
+    if(encontrado == 1)
+    {
+        cout << "Encontrado";
+    }
+    else
+    {
+        cout << "No encontrado";
+    }
+
+    return 0;
+}
