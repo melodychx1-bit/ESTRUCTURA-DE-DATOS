@@ -1,0 +1,53 @@
+/*Ejercicio 30. Segundo menor distinto
+Enunciado. Encontrar el segundo valor menor distinto del arreglo. Si no existe, indicarlo*/
+
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    int numeros[50];
+    int N;
+    int menor;
+    int segundo;
+    bool existeSegundo = false;
+
+    cout<<"Ingresar un numero:";
+    cin >> N;
+
+  
+    for (int i = 0; i < N; i++) {
+        cin >> numeros[i];
+    }
+
+    menor = numeros[0];
+
+
+    for (int i = 1; i < N; i++) {
+        if (numeros[i] < menor) {
+            menor = numeros[i];
+        }
+    }
+
+    for (int i = 0; i < N; i++) {
+
+        if (numeros[i] > menor) {
+
+            if (!existeSegundo || numeros[i] < segundo) {
+                segundo = numeros[i];
+                existeSegundo = true;
+            }
+        }
+    }
+
+    if (existeSegundo) {
+        cout << "Segundo menor = " << segundo;
+    } else {
+        cout << "No existe segundo menor distinto";
+    }
+
+    return 0;
+}
+
