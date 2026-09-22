@@ -1,0 +1,56 @@
+/*Ejercicio 69. Subarreglo con suma máxima
+Enunciado. Encontrar la suma máxima de un segmento contiguo usando un enfoque tipo Kadane. 
+Reportar suma
+e índices.*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+
+    cout << "Ingrese N: ";
+    cin >> n;
+
+    int v[100];
+
+    cout << "Ingrese los elementos: ";
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
+    }
+
+    int sumaActual = v[0];
+    int sumaMaxima = v[0];
+
+    int inicioActual = 0;
+    int mejorInicio = 0;
+    int mejorFin = 0;
+
+    for (int i = 1; i < n; i++) {
+
+        if (sumaActual + v[i] < v[i]) {
+            sumaActual = v[i];
+            inicioActual = i;
+        } else {
+            sumaActual = sumaActual + v[i];
+        }
+
+        if (sumaActual > sumaMaxima) {
+            sumaMaxima = sumaActual;
+            mejorInicio = inicioActual;
+            mejorFin = i;
+        }
+    }
+
+    cout << "Suma maxima = " << sumaMaxima << endl;
+    cout << "Indices = " << mejorInicio
+         << ".." << mejorFin << endl;
+
+    cout << "Segmento: ";
+
+    for (int i = mejorInicio; i <= mejorFin; i++) {
+        cout << v[i] << " ";
+    }
+
+    return 0;
+}
