@@ -1,0 +1,39 @@
+/*Ejercicio 39. Invertir el vector in situ
+Enunciado. Invertir el arreglo usando intercambios, sin utilizar un segundo
+arreglo del mismo tamaño.*/
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    int numeros[50];
+    int N;
+    int aux;
+
+    cout << "Ingrese la cantidad de numeros: ";
+    cin >> N;
+
+    cout << "Ingrese los " << N << " numeros: ";
+    for (int i = 0; i < N; i++) {
+        cin >> numeros[i];
+    }
+
+    
+    for (int i = 0; i < N / 2; i++) {
+
+        aux = numeros[i];
+        numeros[i] = numeros[N - 1 - i];
+        numeros[N - 1 - i] = aux;
+    }
+
+    cout << "Arreglo invertido: ";
+
+    for (int i = 0; i < N; i++) {
+        cout << numeros[i] << " ";
+    }
+
+    return 0;
+}
+
