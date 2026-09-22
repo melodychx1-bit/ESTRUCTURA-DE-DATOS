@@ -1,0 +1,49 @@
+/*Ejercicio 33. Insertar un elemento en una posición
+Enunciado. Con capacidad suficiente, insertar X en la posición P desplazando a
+la derecha los elementos
+necesarios.*/
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    int numeros[50];
+    int N;
+    int X;
+    int P;
+
+    cout << "Ingrese la cantidad de numeros: ";
+    cin >> N;
+
+    cout << "Ingrese los " << N << " numeros: ";
+    for (int i = 0; i < N; i++) {
+        cin >> numeros[i];
+    }
+
+    cout << "Ingrese el numero que desea insertar: ";
+    cin >> X;
+
+    cout << "Ingrese la posicion donde desea insertar: ";
+    cin >> P;
+
+
+    for (int i = N; i > P; i--) {
+        numeros[i] = numeros[i - 1];
+    }
+
+
+    numeros[P] = X;
+
+    N++;
+
+    cout << "Arreglo despues de insertar: ";
+
+    for (int i = 0; i < N; i++) {
+        cout << numeros[i] << " ";
+    }
+
+    return 0;
+}
+
