@@ -1,0 +1,38 @@
+/*Ejercicio 27. Producto escalar
+Enunciado. Leer dos arreglos enteros A y B de tamaño N y calcular la suma de A[i] * B[i]*/
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    int A[50];
+    int B[50];
+    int N;
+    int producto = 0;
+    
+    cout<<"Ingrese un numero:";
+    cin >> N;
+
+    
+    for (int i = 0; i < N; i++) {
+        cout<<"Ingrese los valores A:";
+        cin >> A[i];
+    }
+
+
+    for (int i = 0; i < N; i++) {
+          cout<<"Ingrese los valores B:";
+        cin >> B[i];
+    }
+
+    for (int i = 0; i < N; i++) {
+        producto = producto + A[i] * B[i];
+    }
+
+    cout << "Producto escalar = " << producto;
+
+    return 0;
+}
+
