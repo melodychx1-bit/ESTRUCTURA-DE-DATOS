@@ -1,0 +1,61 @@
+/*Ejercicio 60. Subsecuencia creciente más larga contigua
+Enunciado. Encontrar la mayor cantidad de elementos consecutivos estrictamente crecientes y reportar su
+tramo*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+
+    cout << "Ingrese N: ";
+    cin >> n;
+
+    int v[100];
+
+    cout << "Ingrese los elementos: ";
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
+    }
+
+    int longitudActual = 1;
+    int mayorLongitud = 1;
+
+    int inicioActual = 0;
+    int mejorInicio = 0;
+
+    for (int i = 1; i < n; i++) {
+
+        if (v[i] > v[i - 1]) {
+
+            longitudActual++;
+
+        }
+        else {
+
+            longitudActual = 1;
+            inicioActual = i;
+        }
+
+        if (longitudActual > mayorLongitud) {
+
+            mayorLongitud = longitudActual;
+            mejorInicio = inicioActual;
+        }
+    }
+
+    cout << "Longitud = " << mayorLongitud << endl;
+
+    cout << "Tramo: ";
+
+    for (int i = mejorInicio;
+         i < mejorInicio + mayorLongitud;
+         i++) {
+
+        cout << v[i] << " ";
+    }
+
+   
+
+    return 0;
+}
