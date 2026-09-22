@@ -1,0 +1,56 @@
+/*Ejercicio 76. Mayor producto de tres elementos
+Enunciado. Encontrar el máximo producto posible usando tres posiciones distintas.*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+
+    cout << "Ingrese N: ";
+    cin >> n;
+
+    int v[100];
+
+    cout << "Ingrese los elementos: ";
+
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
+    }
+
+    int mayorProducto = v[0] * v[1] * v[2];
+
+    int posicion1 = 0;
+    int posicion2 = 1;
+    int posicion3 = 2;
+
+    for (int i = 0; i < n - 2; i++) {
+
+        for (int j = i + 1; j < n - 1; j++) {
+
+            for (int k = j + 1; k < n; k++) {
+
+                int producto = v[i] * v[j] * v[k];
+
+                if (producto > mayorProducto) {
+                    mayorProducto = producto;
+
+                    posicion1 = i;
+                    posicion2 = j;
+                    posicion3 = k;
+                }
+            }
+        }
+    }
+
+    cout << "Mayor producto = "
+         << mayorProducto << endl;
+
+    cout << "Valores: "
+         << v[posicion1] << " * "
+         << v[posicion2] << " * "
+         << v[posicion3] << " = "
+         << mayorProducto;
+
+    return 0;
+}
