@@ -1,0 +1,41 @@
+
+/*Ejercicio 99. Duplicado y faltante en 1..N
+Enunciado. El arreglo contiene números de 1..N, pero uno está repetido y otro falta. Determinar ambos sin usar
+contenedores STL.*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+    int A[100];
+    int frecuencia[101] = {0};
+
+    cout << "Ingrese N: ";
+    cin >> n;
+
+    cout << "Ingrese los valores: ";
+    for (int i = 0; i < n; i++) {
+        cin >> A[i];
+        frecuencia[A[i]]++;
+    }
+
+    int duplicado = -1;
+    int faltante = -1;
+
+    for (int i = 1; i <= n; i++) {
+
+        if (frecuencia[i] == 2) {
+            duplicado = i;
+        }
+
+        if (frecuencia[i] == 0) {
+            faltante = i;
+        }
+    }
+
+    cout << "Duplicado = " << duplicado << endl;
+    cout << "Faltante = " << faltante << endl;
+
+    return 0;
+}
