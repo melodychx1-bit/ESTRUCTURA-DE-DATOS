@@ -1,0 +1,31 @@
+/*Ejercicio 77. Histograma de enteros acotados
+Enunciado. Los valores estarán entre 0 y 9. Construir un arreglo de frecuencias de tamaño 10.*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+
+    cout << "Ingrese N: ";
+    cin >> n;
+
+    int v[100];
+    int frecuencia[10] = {0};
+
+    cout << "Ingrese los elementos: ";
+
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
+
+        frecuencia[v[i]]++;
+    }
+
+    cout << "Frecuencias [0..9]: ";
+
+    for (int i = 0; i < 10; i++) {
+        cout << frecuencia[i] << " ";
+    }
+
+    return 0;
+}
