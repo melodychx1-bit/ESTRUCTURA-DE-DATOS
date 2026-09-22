@@ -1,0 +1,48 @@
+/*Ejercicio 47. Moda
+Enunciado. Encontrar el valor con mayor frecuencia. Si hay empate, devolver el
+menor valor entre las modas.*/
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+
+    cout << "Ingrese N: ";
+    cin >> n;
+
+    int v[100];
+
+    cout << "Ingrese los valores: ";
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
+    }
+
+    int moda = v[0];
+    int mayorFrecuencia = 0;
+
+    for (int i = 0; i < n; i++) {
+
+        int frecuencia = 0;
+
+        for (int j = 0; j < n; j++) {
+
+            if (v[i] == v[j]) {
+                frecuencia++;
+            }
+        }
+
+        if (frecuencia > mayorFrecuencia ||
+            (frecuencia == mayorFrecuencia && v[i] < moda)) {
+
+            mayorFrecuencia = frecuencia;
+            moda = v[i];
+        }
+    }
+
+    cout << "Moda = " << moda << endl;
+    cout << "Frecuencia = " << mayorFrecuencia << endl;
+
+    return 0;
+}
