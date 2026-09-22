@@ -1,0 +1,38 @@
+/*Ejercicio 23. Rotar una posición a la izquierda
+Enunciado. Desplazar todos los elementos una posición a la izquierda; el primero pasa a 
+la última posición.*/
+
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int A[50];
+    int N;
+    int aux;
+
+    cout<<"Ingrese un numero:";
+    cin >> N;
+
+    for(int i = 0; i < N; i++)
+    {
+        cin >> A[i];
+    }
+
+    aux = A[0];
+
+    for(int i = 0; i < N - 1; i++)
+    {
+        A[i] = A[i + 1];
+    }
+
+    A[N - 1] = aux;
+
+    for(int i = 0; i < N; i++)
+    {
+        cout << A[i] << " ";
+    }
+
+    return 0;
+}
